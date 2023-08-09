@@ -4,6 +4,7 @@ public class Target : MonoBehaviour
 {
 
     public float health = 50f;
+    public GameObject blood;
     Animator anim;
     UnityEngine.AI.NavMeshAgent agent;
 
@@ -16,17 +17,18 @@ public class Target : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-            health -= amount;
-            if (health <= 0)
-            {
-                anim.SetBool("isDying", true);
-                Die();
-            }
+        Instantiate(blood, transform.position, Quaternion.identity);
+        health -= amount;
+        if (health <= 0)
+        {
+            anim.SetBool("isDying", true);
+            Die();
+        }
     }
 
     void Die ()
     {
-        agent.speed = 0f;
+        agent.isStopped = true; // Pysäyttää NavMeshAgentin liikkumisen
         Invoke("DestroyGameObject", 6f);
     }
 

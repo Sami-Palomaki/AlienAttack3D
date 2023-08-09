@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public GameObject muzzleFlashPrefab;
-    public Camera cam;
+    
 
     public float damage = 10f;
     public float range = 100f;
