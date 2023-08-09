@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public float attackCD;
     public Transform attackPos;
     public bool isAttacking;
+    public string zombieSound;
     private float dist;
     private float lastAttackTime = -999f; // Alustetaan aika niin pieneksi, että vihollinen voi hyökätä heti alussa
     bool canAttack = false;
@@ -64,7 +65,7 @@ public class Enemy : MonoBehaviour
 
     public void StartAttack()
     {
-        Debug.Log("Pitäisi aloittaa hyökkäys!");
+        AudioManager.instance.Play(zombieSound, this.gameObject);
         FaceTarget();       // Vihollinen katsoo sinua päin kun hyökkää
         Collider[] colliders = Physics.OverlapSphere(attackPos.position, radius);
         foreach (var col in colliders)
