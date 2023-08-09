@@ -7,7 +7,7 @@ public class BulletHoleScript : MonoBehaviour
     [SerializeField] private GameObject _bulletHolePrefab;
     [SerializeField] private float _bulletHoleLifetime = 5f; // Luodinreiän elinaika
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))

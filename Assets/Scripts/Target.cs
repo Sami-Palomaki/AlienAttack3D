@@ -11,7 +11,6 @@ public class Target : MonoBehaviour
     Animator anim;
     UnityEngine.AI.NavMeshAgent agent;
 
-    // Tämä metodi alustaa Animator-komponentin
     private void Start()
     {
         anim = GetComponent<Animator>();

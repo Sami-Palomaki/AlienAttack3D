@@ -27,7 +27,6 @@ public class AudioManager : MonoBehaviour
 
     private void Start() 
     {
-        // PlayMusic("Theme");   
         AudioManager.instance.PlayMusic(0);
     }
 
@@ -60,6 +59,7 @@ public class AudioManager : MonoBehaviour
     }
 
         AudioManager.instance.PlayMusic(currentMusicIndex);
+        
         // Get the index of the current music track
         int currentTrackIndex = Array.IndexOf(musicSound, musicSource.clip);
 

@@ -2,24 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class Health : MonoBehaviour
 {
     public float health = 100f;
     public float maxHealth = 100f;
     public string hurtSound;
-    public HealthBar healthBar;
+    public Slider healthBar;
     public GameObject player;
+
     
     public void Start()
     {
         health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
     }
 
-    public void Update()
+    void Update()
     {
-        
+        healthBar.value = health;
     }
 
     public void TakeDamage(float damage)
@@ -28,7 +31,6 @@ public class Health : MonoBehaviour
         health -= damage;
         AudioManager.instance.Play(hurtSound, this.gameObject);
 
-        healthBar.SetHealth(health);
 
         if (health <= 0) 
         {
@@ -50,13 +52,8 @@ public class Health : MonoBehaviour
     }
 
     void GameOver()
-    {
-        
-        // SceneManager.LoadScene(2);
-        Time.timeScale = 0;
-        AudioListener.pause = true;
-        // GetComponent<PlayerMovement>().enabled = false;
-        // FindObjectOfType<GameManager>()?.EndGame();
+    {       
+        SceneManager.LoadScene("GameOver");
     }
 
 }

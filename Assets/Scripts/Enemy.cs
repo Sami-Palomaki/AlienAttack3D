@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
     public int damage = 15;
     public float attackCD;
     public Transform attackPos;
+    public bool isAttacking;
     private float dist;
+    private float lastAttackTime = -999f; // Alustetaan aika niin pieneksi, että vihollinen voi hyökätä heti alussa
     bool canAttack = false;
     NavMeshAgent agent;
     Animator anim;
@@ -39,16 +41,18 @@ public class Enemy : MonoBehaviour
 
         if (dist <= agent.stoppingDistance)
         {
-            anim.Play("attack", 1);
+            if (Time.time - lastAttackTime > attackCD) // Tarkistetaan, onko kulunut tarpeeksi aikaa viime hyökkäyksestä
+            {
+                lastAttackTime = Time.time; // Päivitetään viime hyökkäyksen aika
+                anim.SetBool("isAttacking", true);
+                StartAttack();
+            }
+            else
+            {
+                anim.SetBool("isAttacking", false);
+            }
         }
         agent.SetDestination(target.position);
-
-        
-
-        if (anim != null)
-        {
-            anim.SetFloat("velocity", agent.velocity.magnitude / maxSpeed);
-        }
     }
 
     public void Death()             
@@ -60,7 +64,7 @@ public class Enemy : MonoBehaviour
 
     public void StartAttack()
     {
-
+        Debug.Log("Pitäisi aloittaa hyökkäys!");
         FaceTarget();       // Vihollinen katsoo sinua päin kun hyökkää
         Collider[] colliders = Physics.OverlapSphere(attackPos.position, radius);
         foreach (var col in colliders)
@@ -81,8 +85,13 @@ public class Enemy : MonoBehaviour
 
     public void DoDamage()
     {
-        // FindObjectOfType<Player>().TakeDamage(15);          // DAMAGE PELAAJALLE
-        Debug.Log("Tehty damagea!");
+        Health playerHealth = FindObjectOfType<Health>();
+        
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damage); // Käytetään "damage" -muuttujaa vihollisen aiheuttaman vahingon määrittämiseen
+            Debug.Log("Tehty damagea!");
+        }
         
     }
 
