@@ -41,7 +41,7 @@ public class Shooting : MonoBehaviour
 
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, range))
+        if (Physics.Raycast(firePoint.transform.position, firePoint.transform.forward, out hitInfo, range))
         {
             Debug.Log(hitInfo.transform.name);
 
@@ -55,7 +55,7 @@ public class Shooting : MonoBehaviour
             }
             else
             {
-                Debug.Log("Vihollinen on null");
+                Debug.Log("Invalid target");
             }
 
             if (hitInfo.transform.gameObject.activeSelf)
