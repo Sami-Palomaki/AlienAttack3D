@@ -6,7 +6,7 @@ public class BloodScript : MonoBehaviour
 {
     void Start()
     {
-        Invoke("DestroyGameObject", 6f);
+        Invoke("DestroyGameObject", 5f);
 
     }
 

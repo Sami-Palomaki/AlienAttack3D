@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Target : MonoBehaviour
 {
 
     public float health = 50f;
     public GameObject blood;
+    public Slider healthBar;
+
     Animator anim;
     UnityEngine.AI.NavMeshAgent agent;
 
@@ -13,6 +16,11 @@ public class Target : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    }
+
+    void Update()
+    {
+        healthBar.value = health;
     }
 
     public void TakeDamage(float amount)
@@ -29,7 +37,7 @@ public class Target : MonoBehaviour
     void Die ()
     {
         agent.isStopped = true; // Pysäyttää NavMeshAgentin liikkumisen
-        Invoke("DestroyGameObject", 6f);
+        Invoke("DestroyGameObject", 35f);
     }
 
     private void DestroyGameObject()

@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     public void Start()
     {
         health = maxHealth;
-        // healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void Update()
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
         health -= damage;
         AudioManager.instance.Play(hurtSound, this.gameObject);
 
-        // healthBar.SetHealth(health);
+        healthBar.SetHealth(health);
 
         if (health <= 0) 
         {
@@ -52,7 +52,7 @@ public class Health : MonoBehaviour
     void GameOver()
     {
         
-        SceneManager.LoadScene(2);
+        // SceneManager.LoadScene(2);
         Time.timeScale = 0;
         AudioListener.pause = true;
         // GetComponent<PlayerMovement>().enabled = false;
