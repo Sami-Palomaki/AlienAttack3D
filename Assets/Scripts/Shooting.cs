@@ -49,8 +49,6 @@ public class Shooting : MonoBehaviour
 
             if (target != null)
             {
-                
-                Debug.Log("ota 10 damagea");
                 target.TakeDamage(damage);
             }
             else

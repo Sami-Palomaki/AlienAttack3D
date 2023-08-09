@@ -26,8 +26,9 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
         UpdateAnimator();
+
         // Jos pelaaja on säteen sisällä, jahdataan pelaajaa
-        if (distance <= lookRadius)
+        if (distance <= lookRadius && gameObject.activeSelf)
         {
             agent.SetDestination(target.position);
 

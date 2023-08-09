@@ -1,69 +1,38 @@
-// using UnityEngine;
-
-
-// public class Target : MonoBehaviour
-// {
-//     [SerializeField] public float health = 50f;
-//     public delegate void EnemyKilled();
-//     public static event EnemyKilled OnEnemyKilled;
-//     public static int howManyKills = 0;
-//     private Enemy enemyControl;
-//     private Collider enemyCol;
-
-
-//     void Awake()
-//     {
-//         enemyControl = GetComponent<Enemy>();
-//     }
-
-//     void Start()
-//     {
-//         enemyCol = GetComponent<Collider>();
-        
-//     }
-
-//     public void TakeDamage (float amount)           // Tässä vihollinen ottaa damagea
-//     {
-//         health -= amount;
-
-//         if (health <= 0f)
-//         {
-//             Die();
-//         }
-//     }
-
-//     void Die()                      // Vihollinen kuolee, metodi
-//     {
-//         enemyCol.enabled = false;
-//      //    howManyKills+=1;                            // Laskee Game Over -ruudulle tapot
-//      //    UIManager.instance.killCount++;             // Lisää killCount muuttujaan tapon
-//      //    UIManager.instance.UpdateKillCounterUI();   // Päivittää metodikutsulla tappolaskurin
-//         enemyControl.Death();
-
-//         if(OnEnemyKilled != null)
-//         {
-//             OnEnemyKilled();
-//         }
-//     }
-// }
-
 using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-   public float health = 50f;
 
-   public void TakeDamage(float amount)
-   {
-        health -= amount;
-        if (health <= 0)
-        {
-            Die();
-        }
-   }
+    public float health = 50f;
+    Animator anim;
+    UnityEngine.AI.NavMeshAgent agent;
 
-   void Die ()
-   {
-        Destroy(this.gameObject);
-   }
+    // Tämä metodi alustaa Animator-komponentin
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    }
+
+    public void TakeDamage(float amount)
+    {
+            health -= amount;
+            if (health <= 0)
+            {
+                anim.SetBool("isDying", true);
+                Die();
+            }
+    }
+
+    void Die ()
+    {
+        agent.speed = 0f;
+        Invoke("DestroyGameObject", 6f);
+    }
+
+    private void DestroyGameObject()
+    {
+        // Tuhotaan tämä GameObject
+        Destroy(gameObject);
+    }
 }
