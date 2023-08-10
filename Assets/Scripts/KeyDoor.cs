@@ -15,11 +15,11 @@ public class KeyDoor : MonoBehaviour
     public void OpenDoor()
     {
         gameObject.SetActive(false);
-        EndOfGame();
+        GameWon();
     }
 
-    public void EndOfGame()
+    public void GameWon()
     {
-        SceneManager.LoadScene("EndOfGame");
+        SceneManager.LoadScene("WonScene");
     }
 }
