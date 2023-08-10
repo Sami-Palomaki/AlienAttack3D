@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public string hurtSound;
     public Slider healthBar;
     public GameObject player;
+    public string gameOver;
 
     
     public void Start()
@@ -53,6 +54,7 @@ public class Health : MonoBehaviour
 
     void GameOver()
     {       
+        AudioManager.instance.Play(gameOver, this.gameObject);
         SceneManager.LoadScene("GameOver");
     }
 
