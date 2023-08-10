@@ -20,6 +20,6 @@ public class KeyDoor : MonoBehaviour
 
     public void GameWon()
     {
-        SceneManager.LoadScene("WonScene");
+        SceneManager.LoadScene("EndOfGame");
     }
 }

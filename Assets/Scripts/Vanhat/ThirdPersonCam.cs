@@ -26,12 +26,6 @@ public class ThirdPersonCam : MonoBehaviour
         Topdown
     }
 
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
     private void Update()
     {
         // switch styles
