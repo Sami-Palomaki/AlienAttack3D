@@ -15,8 +15,9 @@ public class Enemy : MonoBehaviour
     public bool isAttacking;
     public string zombieSound;
     private float dist;
-    private float lastAttackTime = -999f; // Alustetaan aika niin pieneksi, että vihollinen voi hyökätä heti alussa
+    private float lastAttackTime = 2f; // Alustetaan aika niin pieneksi, että vihollinen voi hyökätä heti alussa
     bool canAttack = false;
+    bool isDead = false;
     NavMeshAgent agent;
     Animator anim;
     
@@ -45,7 +46,9 @@ public class Enemy : MonoBehaviour
             if (Time.time - lastAttackTime > attackCD) // Tarkistetaan, onko kulunut tarpeeksi aikaa viime hyökkäyksestä
             {
                 lastAttackTime = Time.time; // Päivitetään viime hyökkäyksen aika
-                anim.SetBool("isAttacking", true);
+                //anim.SetBool("isAttacking", true);
+                //anim.SetTrigger("attack");
+                
                 StartAttack();
             }
             else
@@ -58,6 +61,7 @@ public class Enemy : MonoBehaviour
 
     public void Death()             
     {
+        isDead = true;
         agent.speed = 0f;
         anim.SetTrigger("dying");       // Vihollinen kuolee animaatio-triggeri menee päälle
 
@@ -65,15 +69,37 @@ public class Enemy : MonoBehaviour
 
     public void StartAttack()
     {
-        AudioManager.instance.Play(zombieSound, this.gameObject);
-        FaceTarget();       // Vihollinen katsoo sinua päin kun hyökkää
-        Collider[] colliders = Physics.OverlapSphere(attackPos.position, radius);
-        foreach (var col in colliders)
+        if (isDead)
         {
-            DoDamage();
-            break;
-        
+            return;
         }
+        else
+        {
+
+            AudioManager.instance.Play(zombieSound, this.gameObject);
+            FaceTarget();       // Vihollinen katsoo sinua päin kun hyökkää
+            Collider[] colliders = Physics.OverlapSphere(attackPos.position, radius);
+            foreach (var col in colliders)
+            {
+                anim.SetTrigger("attack");
+                DoDamage();
+                break;
+            
+            }
+        }
+    }
+
+    public void AttackAnimationEvent()
+    {
+        Health playerHealth = FindObjectOfType<Health>();
+        
+        if (playerHealth != null)
+        {
+            
+            playerHealth.TakeDamage(damage);
+            
+            Debug.Log("Tehty damagea!");
+        }  
     }
 
     void FaceTarget()
@@ -86,14 +112,7 @@ public class Enemy : MonoBehaviour
 
     public void DoDamage()
     {
-        Health playerHealth = FindObjectOfType<Health>();
-        
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(damage); // Käytetään "damage" -muuttujaa vihollisen aiheuttaman vahingon määrittämiseen
-            Debug.Log("Tehty damagea!");
-        }
-        
+        AttackAnimationEvent();
     }
 
     void OnDrawGizmosSelected()                             // Vihollisen hyökkäys-gizmot

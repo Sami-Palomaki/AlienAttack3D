@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8752012359641159453}
   m_Layer: 3
   m_Name: AttackPos
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8408003248500509255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.35, z: 0.75}
+  m_LocalPosition: {x: 0, y: 1.35, z: 0.836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -19.6
       objectReference: {fileID: 0}
+    - target: {fileID: 375330298606343184, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 375330298606343184, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 650867267754080219, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -70,6 +78,14 @@ PrefabInstance:
     - target: {fileID: 3078944837663771869, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
       propertyPath: m_MaxValue
       value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039411813546380067, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039411813546380067, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4708323640326534132, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
       propertyPath: m_SizeDelta.x
@@ -87,9 +103,25 @@ PrefabInstance:
       propertyPath: m_FillCenter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7246698940421099878, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246698940421099878, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7453533154209974361, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
       propertyPath: m_Name
       value: SkeletonZombieCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453533154209974361, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453533154209974361, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7643867742507931184, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
       propertyPath: m_Pivot.x
@@ -175,6 +207,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8697150425266015115, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697150425266015115, guid: 26f149dfadf37b44ebc595b4fb61f4c1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -235,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.18709
+      value: 8.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       propertyPath: m_LocalPosition.y
@@ -377,6 +417,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -1956081490175951257, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -1781356600409242780, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -440,6 +484,10 @@ PrefabInstance:
     - target: {fileID: 1082271958561512970, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1082271958561512970, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1339101018200438765, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       propertyPath: m_Layer
@@ -616,7 +664,7 @@ PrefabInstance:
       addedObject: {fileID: 3531131966622371125}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5410933678695937763}
+      addedObject: {fileID: 4339396383017744230}
   m_SourcePrefab: {fileID: 100100000, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
 --- !u!1 &8446988405879327715 stripped
 GameObject:
@@ -660,7 +708,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -700,8 +748,10 @@ MonoBehaviour:
   radius: 10
   isWalking: 0
   damage: 15
-  attackCD: 0
+  attackCD: 2
   attackPos: {fileID: 8752012359641159453}
+  isAttacking: 0
+  zombieSound: zombieAttack
 --- !u!54 &3531131966622371125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -729,7 +779,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5410933678695937763
+--- !u!114 &4339396383017744230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

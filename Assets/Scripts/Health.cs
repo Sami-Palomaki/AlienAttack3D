@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     public Slider healthBar;
     public GameObject player;
     Animator anim;
+    bool isGameOver = false; // Lisää tämä muuttuja
 
     
     public void Start()
@@ -29,7 +30,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (player != null) {
+        if (player != null && health > 0) {
         health -= damage;
         AudioManager.instance.Play(hurtSound, this.gameObject);
         }
@@ -37,13 +38,24 @@ public class Health : MonoBehaviour
 
         if (health <= 0) 
         {
+            // isGameOver = true;
             anim.SetTrigger("dying");
             StartCoroutine(GameOverAfterDelay(5f));
+            //GameOver();
         }
     }
 
     IEnumerator GameOverAfterDelay(float delay)
     {
+        // Pysäytetään pelaajan liikkuminen asettamalla Rigidbody pois päältä
+        Rigidbody playerRigidbody = player.GetComponent<Rigidbody>();
+        if (playerRigidbody != null)
+        {
+            playerRigidbody.velocity = Vector3.zero;
+            playerRigidbody.angularVelocity = Vector3.zero;
+            playerRigidbody.isKinematic = true;
+        }
+
         yield return new WaitForSeconds(delay); // Odota annettu aika
         GameOver(); // Kutsu GameOver-metodia
     }
