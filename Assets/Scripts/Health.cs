@@ -13,12 +13,13 @@ public class Health : MonoBehaviour
     public string hurtSound;
     public Slider healthBar;
     public GameObject player;
-    public string gameOver;
+    Animator anim;
 
     
     public void Start()
     {
         health = maxHealth;
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -31,14 +32,22 @@ public class Health : MonoBehaviour
         if (player != null) {
         health -= damage;
         AudioManager.instance.Play(hurtSound, this.gameObject);
+        }
 
 
         if (health <= 0) 
         {
-            GameOver();         
+            anim.SetTrigger("dying");
+            StartCoroutine(GameOverAfterDelay(5f));
         }
     }
+
+    IEnumerator GameOverAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Odota annettu aika
+        GameOver(); // Kutsu GameOver-metodia
     }
+    
     public void Heal(int amount)
     {
         if(player !=null && health < maxHealth){
@@ -54,7 +63,6 @@ public class Health : MonoBehaviour
 
     void GameOver()
     {       
-        AudioManager.instance.Play(gameOver, this.gameObject);
         SceneManager.LoadScene("GameOver");
     }
 
