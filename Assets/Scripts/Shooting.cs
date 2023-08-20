@@ -36,12 +36,21 @@ public class Shooting : MonoBehaviour
         // Instantiate and play muzzle flash
         GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation);
         Destroy(muzzleFlash, 0.1f); // Destroy after a short duration (adjust as needed)
-
         
-
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(firePoint.transform.position, firePoint.transform.forward, out hitInfo, range))
+       // Muokataan ampumissuuntaa niin, että se säilyttää saman korkeuden kuin pelaaja
+        Vector3 playerPosition = transform.position; // Pelaajan sijainti
+        Vector3 targetDirection = firePoint.transform.forward; // Suunta eteenpäin
+        targetDirection.y = 0; // Asetetaan Y-koordinaatti nollaksi, jotta ammus liikkuu samalle korkeudelle
+
+
+        // Normalisoidaan suunta, jotta ammus ei liiku liian pitkälle
+        targetDirection.Normalize();
+
+
+
+        if (Physics.Raycast(firePoint.transform.position, targetDirection, out hitInfo, range))
         {
             Debug.Log(hitInfo.transform.name);
 
