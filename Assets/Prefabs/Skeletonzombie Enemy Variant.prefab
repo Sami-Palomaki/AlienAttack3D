@@ -275,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.19
+      value: 28.18709
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       propertyPath: m_LocalPosition.y
@@ -661,9 +661,6 @@ PrefabInstance:
       addedObject: {fileID: 2442654416191313977}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3531131966622371125}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4339396383017744230}
   m_SourcePrefab: {fileID: 100100000, guid: 9b9d6c2611e92944caa434824bc53700, type: 3}
 --- !u!1 &8446988405879327715 stripped
@@ -752,33 +749,6 @@ MonoBehaviour:
   attackPos: {fileID: 8752012359641159453}
   isAttacking: 0
   zombieSound: zombieAttack
---- !u!54 &3531131966622371125
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8446988405879327715}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &4339396383017744230
 MonoBehaviour:
   m_ObjectHideFlags: 0
