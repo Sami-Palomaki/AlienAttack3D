@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
     {
         isDead = true;
         agent.speed = 0f;
-        anim.SetTrigger("dying");       // Vihollinen kuolee animaatio-triggeri menee päälle
+        anim.SetTrigger("isDying");       // Vihollinen kuolee animaatio-triggeri menee päälle
 
     }
 
