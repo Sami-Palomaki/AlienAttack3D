@@ -11,6 +11,9 @@ public class Shooting : MonoBehaviour
 
     public float damage = 10f;
     public float range = 100f;
+
+    [SerializeField] private GameObject _bulletHolePrefab;
+    [SerializeField] private float _bulletHoleLifetime = 5f; // Luodinreiän elinaika
     
     [Header("AudioSource")]
     public string ammoPickUpSound;
@@ -65,13 +68,12 @@ public class Shooting : MonoBehaviour
                 Debug.Log("Invalid target");
             }
 
-            if (hitInfo.transform.gameObject.activeSelf)
+            if (hitInfo.collider.CompareTag("Wall"))
             {
-                Debug.Log("Vihollinen on aktiivinen");
-            }
-            else
-            {
-                Debug.Log("Vihollinen ei ole aktiivinen");
+                GameObject obj = Instantiate(_bulletHolePrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                obj.transform.position += obj.transform.forward / 1000;
+
+                Destroy(obj, _bulletHoleLifetime);
             }
         }
     }
