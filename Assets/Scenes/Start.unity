@@ -34231,8 +34231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f5ccf035d98a248b73116506ba95d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletHolePrefab: {fileID: 6851911216532772042, guid: 07360bbdaefccb946b605723cadb5e5e, type: 3}
-  _bulletHoleLifetime: 5
 --- !u!4 &7824062184468759327
 Transform:
   m_ObjectHideFlags: 0

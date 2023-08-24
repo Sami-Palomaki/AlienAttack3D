@@ -26,32 +26,7 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
         UpdateAnimator();
-
-        // // Jos pelaaja on säteen sisällä, jahdataan pelaajaa
-        // if (distance <= lookRadius && gameObject.activeSelf)
-        // {
-        //     agent.SetDestination(target.position);
-
-        //     if (distance <= agent.stoppingDistance)
-        //     {
-        //         // Attack the target
-        //         FaceTarget();
-        //     }
-        // }
     }
-
-    // void FaceTarget()
-    // {
-    //     Vector3 direction = (target.position - transform.position).normalized;
-    //     Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-    //     transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-    // }
-
-    // void OnDrawGizmosSelected() 
-    // {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireSphere(transform.position, lookRadius);  
-    // }
 
     void UpdateAnimator()
     {
