@@ -50,7 +50,7 @@ public class Shooting : MonoBehaviour
     {
         // Instantiate and play muzzle flash
         GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation);
-        Destroy(muzzleFlash, 0.3f); // Destroy after a short duration (adjust as needed)
+        Destroy(muzzleFlash, 0.15f); // Destroy after a short duration (adjust as needed)
         
         RaycastHit hitInfo;
 

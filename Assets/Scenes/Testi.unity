@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30945632, g: 0.35330108, b: 0.385577, a: 1}
+  m_IndirectSpecularColor: {r: 0.309413, g: 0.3533048, b: 0.38554993, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6908,7 +6908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &872395729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8307,6 +8307,8 @@ MonoBehaviour:
   muzzleFlashPrefab: {fileID: 199458, guid: 29d86feb88bf925428f9d7de6d4b401f, type: 3}
   damage: 10
   range: 100
+  _bulletHolePrefab: {fileID: 0}
+  _bulletHoleLifetime: 5
   ammoPickUpSound: 
   fireSound: HandgunShoot
   unloadSound: 
@@ -9034,7 +9036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1190713802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11822,8 +11824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f5ccf035d98a248b73116506ba95d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletHolePrefab: {fileID: 6851911216532772042, guid: 07360bbdaefccb946b605723cadb5e5e, type: 3}
-  _bulletHoleLifetime: 5
 --- !u!1001 &1413724980
 PrefabInstance:
   m_ObjectHideFlags: 0
