@@ -20,22 +20,34 @@ public class Shooting : MonoBehaviour
     public string reloadSound;
     public string pickupSound;
     public string dropSound;
+    public static bool canMove = true;
+
 
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-            AudioManager.instance.Play(fireSound, this.gameObject);
-        }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+            //if(canMove == true)
+            //{
+                if(Input.GetButtonDown("Fire1"))
+                {
+                    if(canMove == true)
+                        {
+                            Shoot();
+                    
+                            AudioManager.instance.Play(fireSound, this.gameObject);
+                        }
+                }
+            //}
+        //}
     }
 
     void Shoot()
     {
         // Instantiate and play muzzle flash
         GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation);
-        Destroy(muzzleFlash, 0.1f); // Destroy after a short duration (adjust as needed)
+        Destroy(muzzleFlash, 0.3f); // Destroy after a short duration (adjust as needed)
         
         RaycastHit hitInfo;
 

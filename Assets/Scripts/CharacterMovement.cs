@@ -6,6 +6,7 @@ public class CharacterMovement : MonoBehaviour
 {
     
     public float speed = 4;
+    public static bool canMove = true;
     
     Rigidbody rb;
     Animator anim;
