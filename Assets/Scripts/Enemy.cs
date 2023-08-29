@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
     {
         isDead = true;
         agent.speed = 0f;
-        anim.SetTrigger("dying");       // Vihollinen kuolee animaatio-triggeri menee päälle
+        anim.SetTrigger("isDying");       // Vihollinen kuolee animaatio-triggeri menee päälle
 
     }
 
@@ -78,14 +78,10 @@ public class Enemy : MonoBehaviour
 
             AudioManager.instance.Play(zombieSound, this.gameObject);
             FaceTarget();       // Vihollinen katsoo sinua päin kun hyökkää
-            Collider[] colliders = Physics.OverlapSphere(attackPos.position, radius);
-            foreach (var col in colliders)
-            {
-                anim.SetTrigger("attack");
-                DoDamage();
-                break;
+        
+            anim.SetTrigger("attack");
+            DoDamage();
             
-            }
         }
     }
 
@@ -94,11 +90,8 @@ public class Enemy : MonoBehaviour
         Health playerHealth = FindObjectOfType<Health>();
         
         if (playerHealth != null)
-        {
-            
+        {    
             playerHealth.TakeDamage(damage);
-            
-            Debug.Log("Tehty damagea!");
         }  
     }
 

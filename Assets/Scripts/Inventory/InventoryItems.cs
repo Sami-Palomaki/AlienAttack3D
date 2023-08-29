@@ -75,7 +75,8 @@ public class InventoryItems : MonoBehaviour
 
     IEnumerator Reset()
     {
-        yield return new WaitForSeconds(0.01f); //tää jotenkin vaikuttaa tohon itemien poimintaan, kauan venaa ennenkö vetää updaten läpi tms
+        yield return new WaitForSeconds(0.01f); //tää jotenkin vaikuttaa tohon itemien poimintaan, kauan venaa ennenkö vetää updaten läpi tms tutorialis settaaa 0.1f
+        
         iconUpdate = false;
         max = emptySlots.Length;
     }
